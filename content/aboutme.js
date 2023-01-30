@@ -19,4 +19,4 @@ const aboutme = `
 `
 
 
-module.exports = abouteme;
+module.exports = aboutme;
