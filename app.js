@@ -2,9 +2,9 @@ const { request, response } = require("express");
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const contacts = require('./content/contacts');
-const main = require('./content/main');
-const aboutme = require('./content/aboutme');
+const contacts = require('./content/pages/contacts');
+const main = require('./content/pages/main');
+const aboutme = require('./content/pages/aboutme');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(__dirname + '/public'));

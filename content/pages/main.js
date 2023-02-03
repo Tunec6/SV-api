@@ -9,14 +9,7 @@ const main = `
         <title>Contacts</title>
     </head>
     <body>
-        <header>
-            <h1>Контакты:</h1>
-            <ul>
-                <li>Github</li>
-                <li>vk</li>
-                <li>inst</li>
-            </ul>
-        <header>
+    ${header}
     </body>
 </html>
 `
