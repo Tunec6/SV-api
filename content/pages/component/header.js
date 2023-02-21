@@ -1,4 +1,4 @@
-modele.export = `
+module.exports = `
 <header>
 <h1>Главная</h1>
 <ul>
