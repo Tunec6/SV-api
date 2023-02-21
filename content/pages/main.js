@@ -1,3 +1,6 @@
+const header = require('./component/header')
+
+
 const main = ` 
 <!DOCTYPE html>
 <html lang="en">
