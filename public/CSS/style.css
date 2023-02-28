@@ -4,10 +4,43 @@
   box-sizing: border-box;
 }
 body {
- background-color: yellowgreen;
+ background-color: black;
 }
 
 
 header{
-  
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  background: grey;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+header h1 {
+  margin-left: 25px;
+}
+
+header ul {
+  display: flex;
+}
+
+header li {
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+li{
+  list-style: none;
+}
+
+main{
+  color: white;
 }

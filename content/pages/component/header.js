@@ -1,9 +1,10 @@
 module.exports = `
 <header>
-<h1>Главная</h1>
-<ul>
-    <li>обо мне</li>
-    <li>контакты</li>
-</ul>
+    <h1><a href=".">Главная</a></h1>
+
+    <ul>
+        <li><a href="aboutme">обо мне</a></li>
+        <li><a href="contacts">контакты</a></li>
+    <ul
 <header>
 `
