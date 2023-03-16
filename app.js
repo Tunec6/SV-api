@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const sqlite = require("sqlite")
+const sqlite = require("sqlite3")
 const db = new sqlite.Database('./db/list.db')
 
 var app = express();
@@ -15,22 +15,23 @@ app.get('/', (req, res) => {
     res.json('yes')
 })
 
-app.get('/todo',(req, rows) =>{
-    db.all(`SELECT * FROM TODO`,(err, rows) =>{
+app.get('/todo',(req, res) =>{
+    db.all(`SELECT * FROM todo`,(err, rows) =>{
         res.json(rows)
+        
     })
 })
 
 app.post('/todo',(req, res) =>{
     const data = req.body
-    const request = `INSERT INTO TODO VALUES (
+    const request = `INSERT INTO todo VALUES (
         null,
-        '${data.data}'
-        '${data.task}'
-        '${data.description}'
+        '${data.Date}',
+        '${data.task}',
+        '${data.description}',
         '${data.status}')`
 
-        console.log(request)
+       
 
     db.run(request,(err) =>{
         if (err) {
