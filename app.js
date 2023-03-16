@@ -23,7 +23,8 @@ app.get('/todo',(req, res) =>{
 })
 
 app.put('/todo',(req, res) =>{
-    db.all(`SELECT task FROM todo`,(err, rows) =>{
+    const {id} = req.params
+    db.all(`UPDATE todo SET date = 16.05 WHERE id=${id}  `,(err, rows) =>{
         res.json(rows)
     })
 })
