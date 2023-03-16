@@ -1,21 +1,41 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const sqlite = require("sqlite")
+const db = new sqlite.Database('./db/list.db')
 
 var app = express();
+app.use(bodyParser.urlencoded())
+app.use(bodyParser.json())
 
 app.listen(8000, () => {
     console.log("Сервер запущен на порту 8000.")
 })
 
-app.get('/contacts', (request, response) => {
-    response.send(contacts)
+app.get('/', (req, res) => {
+    res.json('yes')
 })
 
-app.get('/',(request,response) =>{
-    response.send(main)
+app.get('/todo',(req, rows) =>{
+    db.all(`SELECT * FROM TODO`,(err, rows) =>{
+        res.json(rows)
+    })
 })
 
+app.post('/todo',(req, res) =>{
+    const data = req.body
+    const request = `INSERT INTO TODO VALUES (
+        null,
+        '${data.data}'
+        '${data.task}'
+        '${data.description}'
+        '${data.status}')`
 
-app.get('/aboutme',(request,response) =>{
-    response.send(aboutme)
+        console.log(request)
+
+    db.run(request,(err) =>{
+        if (err) {
+            res.json(err)
+        }
+        res.json('добавлено')
+    })
 })
