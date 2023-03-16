@@ -22,6 +22,26 @@ app.get('/todo',(req, res) =>{
     })
 })
 
+app.put('/todo',(req, res) =>{
+    db.all(`SELECT task FROM todo`,(err, rows) =>{
+        res.json(rows)
+    })
+})
+
+app.delete('/todo/:id',(req, res) =>{
+    const {id} = req.params
+    const request = `DELETE FROM todo WHERE 
+        id=${id}`
+        
+        
+        db.run(request, (err) => {
+            if(err) {
+                res.json(err)
+            }
+            res.json('задача удалена')
+        })
+})
+
 app.post('/todo',(req, res) =>{
     const data = req.body
     const request = `INSERT INTO todo VALUES (
