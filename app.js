@@ -37,18 +37,18 @@ app.post('/list/questions', (req, res) => {
         }
         res.json('добавлено')
     })
-})
+}),
 
 app.post('/list/answer', (req, res) => {
     const answer = req.body
-    const request = `INSERT INTO answer VALUES(
+    const zapros = `INSERT INTO answer VALUES(
         null,
-        '${answer.question_id}'
+        '${answer.question_id}',
         '${answer.answer}',
         '${answer.is_correct}'
     )`
 
-    db.run(request, (err) => {
+    db.run(zapros, (err) => {
         if (err) {
             res.json(err)
         }
