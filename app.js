@@ -5,6 +5,7 @@ const md5 = require("md5")
 const cors = require("cors")
 const db = new sqlite.Database('./db/list.db')
 
+
 const port = 4000
 
 const app = express();
@@ -39,14 +40,15 @@ app.post('/list/questions', (req, res) => {
     })
 }),
 
-app.post('/list/answer', (req, res) => {
-    const answer = req.body
-    const zapros = `INSERT INTO answer VALUES(
+app.post('/list/answers', (req, res) => {
+    const answers = req.body
+    const zapros = `INSERT INTO answers VALUES(
         null,
-        '${answer.question_id}',
-        '${answer.answer}',
-        '${answer.is_correct}'
+        '${answers.question_id}',
+        '${answers.answer}',
+        '${answers.correct}'
     )`
+    console.log(request)
 
     db.run(zapros, (err) => {
         if (err) {
